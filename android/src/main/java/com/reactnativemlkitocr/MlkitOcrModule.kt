@@ -9,6 +9,7 @@ import com.google.mlkit.vision.text.Text
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions
 import java.lang.Exception
+import com.google.mlkit.vision.text.japanese.JapaneseTextRecognizerOptions;
 
 
 class MlkitOcrModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
@@ -30,7 +31,7 @@ class MlkitOcrModule(reactContext: ReactApplicationContext) : ReactContextBaseJa
     val image: InputImage;
     try {
       image = InputImage.fromFilePath(reactApplicationContext,  Uri.parse(path))
-      val recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
+      val recognizer = TextRecognition.getClient(JapaneseTextRecognizerOptions.Builder().build())
       recognizer.process(image).addOnSuccessListener { visionText ->
         promise.resolve(getDataAsArray(visionText))
       }.addOnFailureListener { e ->

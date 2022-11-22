@@ -128,5 +128,7 @@ dependencies {
   api 'com.facebook.react:react-native:+'
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
   implementation 'com.google.android.gms:play-services-mlkit-text-recognition:18.0.0'
+  implementation 'com.google.mlkit:text-recognition-japanese:16.0.0-beta6'
+
 
 }
