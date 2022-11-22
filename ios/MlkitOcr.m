@@ -93,10 +93,11 @@ RCT_REMAP_METHOD(detectFromUri, detectFromUri:(NSString *)imagePath resolver:(RC
             return;
         }
         
-        MLKTextRecognizer *textRecognizer = [MLKTextRecognizer textRecognizer];
+        MLKJapaneseTextRecognizerOptions *japaneseOptions = [[MLKJapaneseTextRecognizerOptions alloc] init];
+        MLKTextRecognizer *japaneseTextRecognizer = [MLKTextRecognizer textRecognizerWithOptions:japaneseOptions];
         MLKVisionImage *handler = [[MLKVisionImage alloc] initWithImage:image];
         
-        [textRecognizer processImage:handler completion:^(MLKText  *_Nullable result, NSError *_Nullable error) {
+        [japaneseTextRecognizer processImage:handler completion:^(MLKText  *_Nullable result, NSError *_Nullable error) {
             @try {
                 if (error != nil || result == nil) {
                     NSString *errorString = error ? error.localizedDescription : detectionNoResultsMessage;
@@ -141,10 +142,11 @@ RCT_REMAP_METHOD(detectFromFile, detectFromFile:(NSString *)imagePath resolver:(
             return;
         }
         
-        MLKTextRecognizer *textRecognizer = [MLKTextRecognizer textRecognizer];
+        MLKJapaneseTextRecognizerOptions *japaneseOptions = [[MLKJapaneseTextRecognizerOptions alloc] init];
+        MLKTextRecognizer *japaneseTextRecognizer = [MLKTextRecognizer textRecognizerWithOptions:japaneseOptions];
         MLKVisionImage *handler = [[MLKVisionImage alloc] initWithImage:image];
         
-        [textRecognizer processImage:handler completion:^(MLKText *_Nullable result, NSError *_Nullable error) {
+        [japaneseTextRecognizer processImage:handler completion:^(MLKText *_Nullable result, NSError *_Nullable error) {
             @try {
                 if (error != nil || result == nil) {
                     NSString *errorString = error ? error.localizedDescription : detectionNoResultsMessage;

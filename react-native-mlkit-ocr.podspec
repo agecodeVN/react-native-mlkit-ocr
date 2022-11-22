@@ -16,5 +16,6 @@ Pod::Spec.new do |s|
   s.source_files = "ios/**/*.{h,m,mm}"
   
   s.dependency "React"
-  s.dependency "GoogleMLKit/TextRecognition", "2.6.0"
+  s.dependency "GoogleMLKit/TextRecognition", "3.2.0"
+  s.dependency "GoogleMLKit/TextRecognitionJapanese", "3.2.0"
 end
