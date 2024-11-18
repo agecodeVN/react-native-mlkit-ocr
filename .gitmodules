@@ -1,0 +1,3 @@
+[submodule "react-native-mlkit-ocr"]
+	path = react-native-mlkit-ocr
+	url = https://github.com/agecodeVN/react-native-mlkit-ocr.git
